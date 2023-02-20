@@ -1,4 +1,4 @@
-# Pong AI - CS50P Final Project
+# Pong AI - CS50P Final Project (Harvard Course)
  Recreation of Pong that utilizes NEAT (NeuroEvolution of Augmenting Topologies), a machine learning algorithm. This is currently still in development and a task list can be found below.
 
  Read the wiki for more information on how the AI works
@@ -6,11 +6,12 @@
 ## Task List
  - [x] Implement Pong itself
  - [x] Comment code 
- - [] Meet all requirements for CS50P Final Project 
- - [] Implement & comment AI for the game
- - [] Write a wiki & finish README.md
+ - [ ] Meet all requirements for CS50P Final Project 
+ - [ ] Implement & comment AI for the game
+ - [ ] Write a wiki & finish README.md (Several hundred words - detailed explanations)
+ - [ ] Create an demo video following the guidelines provided by Harvard
 
- ## Video Overview
+ ## Video Demo
 
  ## Dependencies
  - [Pygame](https://www.pygame.org/wiki/GettingStarted)
