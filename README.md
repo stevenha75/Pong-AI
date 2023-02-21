@@ -6,7 +6,7 @@
 ## Task List
  - [x] Implement Pong itself
  - [x] Comment code 
- - [ ] Meet all requirements for CS50P Final Project 
+ - [ ] Write Unit tests
  - [ ] Implement & comment AI for the game
  - [ ] Write a wiki & finish README.md (Several hundred words - detailed explanations)
  - [ ] Create an demo video following the guidelines provided by Harvard

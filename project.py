@@ -14,7 +14,6 @@ BLACK = (0, 0, 0)
 PADDLE_WIDTH, PADDLE_HEIGHT = 20, 100
 BALL_RADIUS = 10
 SCORE_FONT = pygame.font.SysFont("arial", 50)
-WINNING_SCORE = 15
 
 
 class Paddle:
@@ -153,6 +152,18 @@ def reset_all(ball, left_paddle, right_paddle):
     right_paddle.reset()
 
 
+def check_win(left_score, right_score):
+    won = False
+    win_text = ""
+    if left_score >= 15:
+        won = True
+        win_text = "Left Player Won!"
+    elif right_score >= 15:
+        won = True
+        win_text = "Right Player Won!"
+    return won, win_text
+
+
 def main():
     run = True
     left_score = 0
@@ -201,13 +212,7 @@ def main():
             reset_all(ball, left_paddle, right_paddle)
 
         # Winning screen
-        won = False
-        if left_score >= WINNING_SCORE:
-            won = True
-            win_text = "Left Player Won!"
-        elif right_score >= WINNING_SCORE:
-            won = True
-            win_text = "Right Player Won!"
+        won, win_text = check_win(left_score, right_score)
         if won:
             text = SCORE_FONT.render(win_text, 1, WHITE)
             WIN.blit(
