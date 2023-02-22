@@ -1,7 +1,7 @@
 # 3 Tests are required (all functions tested must be defined at the same indentation level as main)
 # Naming: test_custom_function where custom_function is implemented in project.py
 
-from project import Paddle, Ball, reset_all, check_win
+from project import Paddle, Ball, reset_all, check_win, handle_score
 
 # Global Constants
 WIDTH, HEIGHT = 700, 500
@@ -58,3 +58,28 @@ def test_check_win_true():
     won, win_text = check_win(left_score, right_score)
     assert won == True
     assert win_text == "Left Player Won!"
+    
+
+def test_handle_score():
+    # Initializing score
+    left_score = 0
+    right_score = 0
+    
+    # Initializing Objects
+    left_paddle = Paddle(
+        10, HEIGHT // 2 - PADDLE_HEIGHT // 2, PADDLE_WIDTH, PADDLE_HEIGHT
+    )
+    right_paddle = Paddle(
+        WIDTH - 10 - PADDLE_WIDTH,
+        HEIGHT // 2 - PADDLE_HEIGHT // 2,
+        PADDLE_WIDTH,
+        PADDLE_HEIGHT,
+    )
+    ball = Ball(WIDTH // 2, HEIGHT // 2, BALL_RADIUS)
+    
+    # Reassinging score
+    left_score, right_score = handle_score(ball, left_paddle, right_paddle, left_score, right_score)
+    
+    # Checking for the correct score
+    assert left_score == ...
+    assert right_score == ...

@@ -127,7 +127,7 @@ def handle_collision(ball, left_paddle, right_paddle):
                 ball.y_vel = -1 * y_vel
 
 
-def paddle_movement(keys, left_paddle, right_paddle):
+def check_paddle_movement(keys, left_paddle, right_paddle):
     # Left paddle movement (W & S)
     if keys[pygame.K_w] and left_paddle.y - left_paddle.VEL >= 0:
         left_paddle.move(up=True)
@@ -164,6 +164,24 @@ def check_win(left_score, right_score):
     return won, win_text
 
 
+# Checks whether each player scores and allocates points
+def handle_score(ball, left_paddle, right_paddle, left_score, right_score):
+    # Store temp values
+    temp_right_score = right_score
+    temp_left_score = left_score
+
+    # Modify accordingly
+    if ball.x < 0:
+        temp_right_score = right_score + 1
+        reset_all(ball, left_paddle, right_paddle)
+    elif ball.x > WIDTH:
+        temp_left_score = left_score + 1
+        reset_all(ball, left_paddle, right_paddle)
+
+    # Returnign modified scores
+    return temp_left_score, temp_right_score
+
+
 def main():
     run = True
     left_score = 0
@@ -197,19 +215,16 @@ def main():
 
         # Handling paddle movement
         keys = pygame.key.get_pressed()
-        paddle_movement(keys, left_paddle, right_paddle)
+        check_paddle_movement(keys, left_paddle, right_paddle)
 
         # Handling ball movement
         ball.move()
         handle_collision(ball, left_paddle, right_paddle)
 
         # Handling score counter
-        if ball.x < 0:
-            right_score += 1
-            reset_all(ball, left_paddle, right_paddle)
-        elif ball.x > WIDTH:
-            left_score += 1
-            reset_all(ball, left_paddle, right_paddle)
+        left_score, right_score = handle_score(
+            ball, left_paddle, right_paddle, left_score, right_score
+        )
 
         # Winning screen
         won, win_text = check_win(left_score, right_score)

@@ -6,7 +6,7 @@
 ## Task List
  - [x] Implement Pong itself
  - [x] Comment code 
- - [ ] Write Unit tests (2 of 3 done)
+ - [ ] Write Simple Unit tests (2 of 3 done)
  - [ ] Implement & comment AI for the game
  - [ ] Write a wiki & finish README.md (Several hundred words - detailed explanations)
  - [ ] Create an demo video following the guidelines provided by Harvard
