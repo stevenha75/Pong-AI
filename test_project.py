@@ -58,13 +58,13 @@ def test_check_win_true():
     won, win_text = check_win(left_score, right_score)
     assert won == True
     assert win_text == "Left Player Won!"
-    
+
 
 def test_handle_score():
     # Initializing score
     left_score = 0
     right_score = 0
-    
+
     # Initializing Objects
     left_paddle = Paddle(
         10, HEIGHT // 2 - PADDLE_HEIGHT // 2, PADDLE_WIDTH, PADDLE_HEIGHT
@@ -76,10 +76,15 @@ def test_handle_score():
         PADDLE_HEIGHT,
     )
     ball = Ball(WIDTH // 2, HEIGHT // 2, BALL_RADIUS)
-    
+
+    # Sending score to player
+    ...
+
     # Reassinging score
-    left_score, right_score = handle_score(ball, left_paddle, right_paddle, left_score, right_score)
-    
+    left_score, right_score = handle_score(
+        ball, left_paddle, right_paddle, left_score, right_score
+    )
+
     # Checking for the correct score
     assert left_score == ...
     assert right_score == ...

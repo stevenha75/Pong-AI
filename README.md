@@ -7,9 +7,11 @@
  - [x] Implement Pong itself
  - [x] Comment code 
  - [ ] Write Simple Unit tests (2 of 3 done)
- - [ ] Implement & comment AI for the game
- - [ ] Write a wiki & finish README.md (Several hundred words - detailed explanations)
+ - [ ] Finish README.md (Several hundred words - detailed explanations)
  - [ ] Create an demo video following the guidelines provided by Harvard
+ - [ ] Submit Final Project
+ - [ ] Implement & comment AI for the game
+ - [ ] Write a wiki to explain the AI & code
 
  ## Video Demo
 
