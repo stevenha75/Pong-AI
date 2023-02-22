@@ -1,5 +1,4 @@
-# 3 Tests are required (all functions tested must be defined at the same indentation level as main)
-# Naming: test_custom_function where custom_function is implemented in project.py
+# Simple Unit Testing
 
 from project import Paddle, Ball, reset_all, check_win, handle_score
 
@@ -60,7 +59,7 @@ def test_check_win_true():
     assert win_text == "Left Player Won!"
 
 
-def test_handle_score():
+def test_handle_score_right():
     # Initializing score
     left_score = 0
     right_score = 0
@@ -77,8 +76,8 @@ def test_handle_score():
     )
     ball = Ball(WIDTH // 2, HEIGHT // 2, BALL_RADIUS)
 
-    # Sending score to player
-    ...
+    # Sending score to right player
+    ball.x = -1
 
     # Reassinging score
     left_score, right_score = handle_score(
@@ -86,5 +85,17 @@ def test_handle_score():
     )
 
     # Checking for the correct score
-    assert left_score == ...
-    assert right_score == ...
+    assert left_score == 0
+    assert right_score == 1
+
+    # Sending score to left player
+    ball.x = WIDTH + 1
+
+    # Reassigning score
+    left_score, right_score = handle_score(
+        ball, left_paddle, right_paddle, left_score, right_score
+    )
+
+    # Checking again
+    assert left_score == 1
+    assert right_score == 1
