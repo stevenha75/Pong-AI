@@ -97,53 +97,54 @@ def draw(win, paddles, ball, left_score, right_score):
     pygame.display.update()
 
 
+# Shortened w/ ChatGPT
 def handle_collision(ball, left_paddle, right_paddle):
-    # Handling ceiling collision
-    if ball.y + ball.radius >= HEIGHT:
+    # Handling ceiling and floor collision
+    if ball.y + ball.radius >= HEIGHT or ball.y - ball.radius <= 0:
         ball.y_vel *= -1
-    elif ball.y - ball.radius <= 0:
-        ball.y_vel *= -1
-    # Left paddle collision
-    if ball.x_vel < 0:
-        if ball.y >= left_paddle.y and ball.y <= left_paddle.y + left_paddle.height:
-            if ball.x - ball.radius <= left_paddle.x + left_paddle.width:
-                ball.x_vel *= -1
 
-                middle_y = left_paddle.y + left_paddle.height / 2
-                difference_in_y = middle_y - ball.y
-                reduction_factor = (left_paddle.height / 2) / ball.MAX_VEL
-                y_vel = difference_in_y / reduction_factor
-                ball.y_vel = -1 * y_vel
-    # Right paddle collision
-    else:
-        if ball.y >= right_paddle.y and ball.y <= right_paddle.y + right_paddle.height:
-            if ball.x + ball.radius >= right_paddle.x:
-                ball.x_vel *= -1
+    # Handling paddle collision
+    if (
+        ball.x_vel < 0
+        and ball.x - ball.radius <= left_paddle.x + left_paddle.width
+        and left_paddle.y <= ball.y <= left_paddle.y + left_paddle.height
+    ):
+        ball.x_vel *= -1
+        ball.y_vel = (
+            (ball.y - (left_paddle.y + left_paddle.height / 2))
+            / (left_paddle.height / 2)
+            * -ball.MAX_VEL
+        )
+    elif (
+        ball.x_vel > 0
+        and ball.x + ball.radius >= right_paddle.x
+        and right_paddle.y <= ball.y <= right_paddle.y + right_paddle.height
+    ):
+        ball.x_vel *= -1
+        ball.y_vel = (
+            (ball.y - (right_paddle.y + right_paddle.height / 2))
+            / (right_paddle.height / 2)
+            * -ball.MAX_VEL
+        )
 
-                middle_y = right_paddle.y + right_paddle.height / 2
-                difference_in_y = middle_y - ball.y
-                reduction_factor = (right_paddle.height / 2) / ball.MAX_VEL
-                y_vel = difference_in_y / reduction_factor
-                ball.y_vel = -1 * y_vel
 
-
+# Shortened w/ ChatGPT
 def check_paddle_movement(keys, left_paddle, right_paddle):
     # Left paddle movement (W & S)
-    if keys[pygame.K_w] and left_paddle.y - left_paddle.VEL >= 0:
+    if keys[pygame.K_w]:
         left_paddle.move(up=True)
-    if (
-        keys[pygame.K_s]
-        and left_paddle.y + left_paddle.VEL + left_paddle.height <= HEIGHT
-    ):
+    elif keys[pygame.K_s]:
         left_paddle.move(up=False)
+
     # Right paddle movement (Arrow keys: UP & DOWN)
-    if keys[pygame.K_UP] and right_paddle.y - right_paddle.VEL >= 0:
+    if keys[pygame.K_UP]:
         right_paddle.move(up=True)
-    if (
-        keys[pygame.K_DOWN]
-        and right_paddle.y + right_paddle.VEL + right_paddle.height <= HEIGHT
-    ):
+    elif keys[pygame.K_DOWN]:
         right_paddle.move(up=False)
+
+    # Keep paddles within screen boundaries
+    left_paddle.y = max(0, min(left_paddle.y, HEIGHT - left_paddle.height))
+    right_paddle.y = max(0, min(right_paddle.y, HEIGHT - right_paddle.height))
 
 
 def reset_all(ball, left_paddle, right_paddle):
