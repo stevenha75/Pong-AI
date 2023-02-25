@@ -25,7 +25,7 @@
  - [ ] Finish the README.md
 
  ## Video Demo
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TM2VOzjg8Xg" frameborder="0" allowfullscreen></iframe>
+[![CS50P Final Project Demo](http://img.youtube.com/vi/TM2VOzjg8Xg/0.jpg)](https://www.youtube.com/watch?v=TM2VOzjg8Xg)
 
  # Installation & Usage
 
