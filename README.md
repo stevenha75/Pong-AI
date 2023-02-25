@@ -18,13 +18,14 @@
 ## Task List
  - [x] Implement Pong itself
  - [x] Write Simple Unit Tests
- - [ ] Create a demo video following the guidelines provided by Harvard
+ - [x] Create a demo video following the guidelines provided by Harvard
  - [ ] Submit Final Project
  - [ ] Implement AI for the game
  - [ ] Create a main menu screen
  - [ ] Finish the README.md
 
  ## Video Demo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TM2VOzjg8Xg" frameborder="0" allowfullscreen></iframe>
 
  # Installation & Usage
 
