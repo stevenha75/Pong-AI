@@ -9,7 +9,7 @@ pygame.display.set_caption("AI Pong by Steven Ha")
 
 # Global constants
 FPS = 60
-WHITE = (255, 255, 255)
+RED = (237, 64, 64)
 BLACK = (0, 0, 0)
 PADDLE_WIDTH, PADDLE_HEIGHT = 20, 100
 BALL_RADIUS = 10
@@ -18,7 +18,7 @@ SCORE_FONT = pygame.font.SysFont("arial", 50)
 
 class Paddle:
     # Class constants
-    COLOR = WHITE
+    COLOR = RED
     VEL = 4
 
     # Paddle Constructor
@@ -45,7 +45,7 @@ class Paddle:
 class Ball:
     # Class constants
     MAX_VEL = 5
-    COLOR = WHITE
+    COLOR = RED
 
     # Ball constructor
     def __init__(self, x, y, radius):
@@ -73,8 +73,8 @@ def draw(win, paddles, ball, left_score, right_score):
     win.fill(BLACK)
 
     # Storing score text
-    left_score_text = SCORE_FONT.render(f"{left_score}", 1, WHITE)
-    right_score_text = SCORE_FONT.render(f"{right_score}", 1, WHITE)
+    left_score_text = SCORE_FONT.render(f"{left_score}", 1, RED)
+    right_score_text = SCORE_FONT.render(f"{right_score}", 1, RED)
 
     # Rendering score text
     win.blit(left_score_text, (WIDTH // 4 - left_score_text.get_width() // 2, 20))
@@ -90,7 +90,7 @@ def draw(win, paddles, ball, left_score, right_score):
     for i in range(10, HEIGHT, HEIGHT // 20):
         if i % 2 == 1:
             continue
-        pygame.draw.rect(win, WHITE, (WIDTH // 2 - 5, i, 10, HEIGHT // 20))
+        pygame.draw.rect(win, RED, (WIDTH // 2 - 5, i, 10, HEIGHT // 20))
 
     ball.draw(win)
 
@@ -230,7 +230,7 @@ def main():
         # Winning screen
         won, win_text = check_win(left_score, right_score)
         if won:
-            text = SCORE_FONT.render(win_text, 1, WHITE)
+            text = SCORE_FONT.render(win_text, 1, RED)
             WIN.blit(
                 text,
                 (

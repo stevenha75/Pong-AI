@@ -17,12 +17,11 @@
 
 ## Task List
  - [x] Implement Pong itself
- - [x] Comment code 
  - [x] Write Simple Unit Tests
- - [x] Update README.md w/ detailed explanations
  - [ ] Create a demo video following the guidelines provided by Harvard
  - [ ] Submit Final Project
- - [ ] Implement & comment AI for the game
+ - [ ] Implement AI for the game
+ - [ ] Create a main menu screen
  - [ ] Finish the README.md
 
  ## Video Demo
