@@ -179,7 +179,7 @@ def handle_score(ball, left_paddle, right_paddle, left_score, right_score):
         temp_left_score = left_score + 1
         reset_all(ball, left_paddle, right_paddle)
 
-    # Returnign modified scores
+    # Returning modified scores
     return temp_left_score, temp_right_score
 
 
