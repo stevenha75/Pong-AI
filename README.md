@@ -12,7 +12,7 @@
 - [How It Works](https://github.com/stevenha75/Pong-AI#how-it-works)
   - [Pong Game Overview](https://github.com/stevenha75/Pong-AI#pong-game-overview)
     - Collision
-  - AI Overview
+  - [AI Overview](https://github.com/stevenha75/Pong-AI/blob/main/README.md#ai-overview)
 - [Post-project reflection](https://github.com/stevenha75/Pong-AI#ai-overview)
 
 ## Task List
@@ -25,7 +25,6 @@
  - [ ] Finish the README.md
 
  ## Video Demo
-
 
  # Installation & Usage
 
