@@ -1,5 +1,5 @@
 # Pong AI - CS50P Final Project
- Recreation of Pong that utilizes ____, a machine learning algorithm. This is currently in development and a task list can be found below.
+ Recreation of Pong that utilizes NEAT, a machine learning algorithm. This is currently in development and a task list can be found below.
 
 ## Table of Contents
 - [Task List](https://github.com/stevenha75/Pong-AI#task-list)
@@ -16,10 +16,7 @@
 - [Post-project reflection](https://github.com/stevenha75/Pong-AI#ai-overview)
 
 ## Task List
- - [x] Implement Pong itself
- - [x] Write Simple Unit Tests
- - [x] Create a demo video following the guidelines provided by Harvard
- - [ ] Submit Final Project
+ - [ ] Abstraction
  - [ ] Implement AI for the game
  - [ ] Create a main menu screen
  - [ ] Finish the README.md
