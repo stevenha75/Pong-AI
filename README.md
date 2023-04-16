@@ -1,5 +1,5 @@
 # Pong AI - CS50P Final Project
- Recreation of Pong that utilizes NEAT, a machine learning algorithm. This is currently in development and a task list can be found below.
+ Recreation of Pong that utilizes NEAT, a machine learning algorithm. 
 
 ## Table of Contents
 - [Task List](https://github.com/stevenha75/Pong-AI#task-list)
@@ -16,12 +16,12 @@
 - [Post-project reflection](https://github.com/stevenha75/Pong-AI#ai-overview)
 
 ## Task List
- - [ ] Abstraction
- - [ ] Implement AI for the game
+ - [ ] Add testing
  - [ ] Create a main menu screen
- - [ ] Finish the README.md
 
  ## Video Demo
+ - This video is outdated and does not include AI implementation
+
 [![CS50P Final Project Demo](http://img.youtube.com/vi/TM2VOzjg8Xg/0.jpg)](https://www.youtube.com/watch?v=TM2VOzjg8Xg)
 
  # Installation & Usage
@@ -29,17 +29,25 @@
    ## Dependencies
  - [Pygame](https://www.pygame.org/wiki/GettingStarted)
  - [Python](https://www.python.org/downloads/)
+ - [neat-python](https://neat-python.readthedocs.io/en/latest/installation.html)
 
  ## Installation
  1. First clone the repository\
  ```git clone https://github.com/stevenha75/kickproxies/git```
- 2. Install dependencies then run main.py\
- ```python3 -m pip install -U pygame --user```\
+ 2. Install dependencies then run main.py (this will put you in a game vs. an AI. This AI was not trained for many generations and has very poor performance). For further explanation on how to train a better AI and play against it, read below.\
+ ```pip install -r path/to/requirements.txt```\
  ```python3 path/to/main.py```
 
  ## Controls
+- W key - move the left paddle up  
+- S key - move the left paddle down  
+
+ The right paddle is controlled by the best AI generated (which is stored in the 'best.pickle' file).
 
  ## Using the AI
+ In order to use the AI, you must edit main.py and uncomment line 248. You also need to comment line 251. This will automatically train the model by pitting genomes against one another and playing games of Pong in quick succession. Eventually it will automatically end and output the best AI into the file 'best.pickle' after reaching a fitness level of 100. This number can be tweaked in the config.txt file and a deeper explanation of fitness level can be found [here](https://nn.cs.utexas.edu/downloads/papers/stanley.cec02.pdf). I will go into deeper explanation on how NEAT works below.
+
+ After training the AI, to use it all you need to do is comment out line 248 and uncomment 251 (the inverse of what was done at the start).
 
  # How It Works
  ## Pong Game Overview
@@ -55,3 +63,31 @@ Moving on from the classes, there were also a few other methods necessary to the
 In hindsite, I assumed this project would be a quick and easy job due to the simplicity of the game mechanics and game overall. However, I found myself taking more time than I expected working on the collision for this game. This gives me a new respect for indie game developers who are creating complex games by themselves. Although this game was a simple arcade game it still required a decent amount of math to handle the collision of balls on the paddle. It worked similarly to other methods and used the position of the objects as well as the size of the window to determine whether a collision occurs. Afterwards, the attributes were modified as needed. In theory this sounds simple, but because the different objects were in constant movement, the formulas required to handle said collisions needed to be handled in the abstract which greatly enhanced the difficulty of the project.
 
 ## AI Overview
+The NEAT algorithm is a type of artificial intelligence (AI) algorithm that is used to train neural networks to solve complex problems. In the context of this code, the NEAT algorithm is being used to train a neural network to play a game of Pong.
+
+The algorithm works by starting with a population of randomly generated neural networks (called "genomes") and evaluating their fitness based on how well they perform in the game. The genomes with the highest fitness scores are then used to create new genomes for the next generation, and the process is repeated. Over time, the genomes evolve to become better and better at playing the game.
+
+In particular, this code calculates fitness in the calculate_fitness() method of the PongGame class. The fitness of the two genomes is calculated based on the results of the game and the duration of the game. The fitness is calculated as the sum of the number of hits made by each paddle and the duration of the game. Specifically, for genome1, the fitness is calculated as game_info.left_hits + duration, and for genome2, the fitness is calculated as game_info.right_hits + duration. The idea is to encourage the paddles to keep the ball in play for as long as possible, while also trying to score points. By using both of these measures, the algorithm can learn to balance the trade-off between scoring points and keeping the ball in play for as long as possible.
+
+Moving on, the NEAT algorithm uses several techniques to ensure that the neural networks continue to evolve and improve over time. One of these techniques is called "speciation," which involves grouping genomes into different "species" based on their similarity. This helps to prevent the algorithm from getting stuck in a local optimum and encourages it to explore a wider range of solutions.
+
+In this code, the NEAT algorithm is being implemented using the neat-python library. The algorithm is being run until a genome reachess a fitness level of 100 according to the config file, and the best genome from each generation is being saved to a file. After the algorithm has finished running, the best genome is loaded from the file and used to create a neural network, which is then tested in a game of Pong. The neural network is able to make decisions about how to move the paddle based on the current state of the game, and over time it evolves to become better and better at playing the game.
+
+# Post-project reflection
+When I started working on the project, I had little experience with game development and machine learning. I had some programming experience from previous endeavors, but I knew that creating a Pong AI using NEAT would be a significant undertaking.
+
+As I began working on the project, I quickly realized that there were many aspects to consider, such as designing the game mechanics, implementing the collision detection, and training the AI using the NEAT algorithm. Each of these areas required a different skillset, but I found that my previous programming experience was a great foundation for learning these new concepts.
+
+I used Pygame to draw the game objects and display the window, and I utilized object-oriented programming (OOP) to create classes for the game objects. This allowed me to organize the code in a logical way and made it easier to make changes and additions as needed.
+
+One of the most challenging aspects of the project was implementing the collision detection for the game. It required a lot of math and abstract thinking to handle the collision of the ball on the paddle. However, I persisted and eventually came up with a solution that worked well.
+
+Another significant aspect of the project was training the AI using the NEAT algorithm. I used the neat-python library to implement the algorithm, which involved starting with a population of randomly generated neural networks and evaluating their fitness based on how well they performed in the game. Over time, the genomes evolved to become better at playing the game.
+
+Overall, I found the project to be both challenging and rewarding. It required a lot of time and effort, but I learned a lot about game development and machine learning in the process. I also gained a deeper appreciation for the complexity of indie game development and the amount of work that goes into creating a fun and engaging game.
+
+In the future, I hope to continue exploring the intersection of game development and machine learning and work on more projects that combine these two areas. I am excited to see where this newfound knowledge will take me.
+
+
+
+

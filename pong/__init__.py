@@ -1,1 +1,1 @@
-from .gameInstance import Game
+from .game import Game

@@ -1,4 +1,3 @@
 pygame
 pytest
 neat-python
-pygame
