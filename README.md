@@ -13,7 +13,7 @@
   - [Pong Game Overview](https://github.com/stevenha75/Pong-AI#pong-game-overview)
     - Collision
   - [AI Overview](https://github.com/stevenha75/Pong-AI/blob/main/README.md#ai-overview)
-- [Post-project reflection](https://github.com/stevenha75/Pong-AI#ai-overview)
+- [Post-project reflection](https://github.com/stevenha75/Pong-AI/edit/main/README.md#post-project-reflection)
 
 ## Task List
  - [ ] Add testing
@@ -47,7 +47,7 @@
  ## Using the AI
  In order to use the AI, you must edit main.py and uncomment line 248. You also need to comment line 251. This will automatically train the model by pitting genomes against one another and playing games of Pong in quick succession. Eventually it will automatically end and output the best AI into the file 'best.pickle' after reaching a fitness level of 100. This number can be tweaked in the config.txt file and a deeper explanation of fitness level can be found [here](https://nn.cs.utexas.edu/downloads/papers/stanley.cec02.pdf). I will go into deeper explanation on how NEAT works below.
 
- After training the AI, to use it all you need to do is comment out line 248 and uncomment 251 (the inverse of what was done at the start).
+ After training the AI, to use it all you need to do is comment out line 248 and uncomment line 251 (the inverse of what was done at the start).
 
  # How It Works
  ## Pong Game Overview
